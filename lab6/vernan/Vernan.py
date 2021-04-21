@@ -11,13 +11,11 @@ def generate_pad(length: int) -> str:
     save(pad, "pad.txt")
     return pad
 
-
 def encrypt(text: str, pad: str) -> str:
 
     ciphertext = ""
 
     for text_character, pad_character in zip(text, pad):
-        print(text_character, pad_character)
         if text_character not in printable:
             raise ValueError(f"Text value: {text_character} provided is not printable ascii")
 
@@ -83,10 +81,10 @@ Cause I love the adrenaline in my veins
 I do what it takes.'''
 
     pad = generate_pad(len(text))
-    print(f"The pad is: {pad}")
+    print(f"The pad is: \n{pad}")
 
     ciphertext = encrypt(text, pad)
-    print(f"\nThe ciphertext is: {ciphertext}")
+    print(f"\nThe ciphertext is: \n{ciphertext}")
 
     plaintext = decrypt(pad, ciphertext)
-    print(f"\nThe decrypted plaintext is: {plaintext}")
+    print(f"\nThe decrypted plaintext is:\n{plaintext}")
